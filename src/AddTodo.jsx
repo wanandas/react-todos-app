@@ -16,12 +16,18 @@ class AddTodo extends React.Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
+    if (this.state.content !== "") {
+      e.preventDefault();
 
-    this.props.addTodo(this.state);
-    this.setState({
-      content: ""
-    });
+      this.props.addTodo(this.state);
+      this.setState({
+        content: ""
+      });
+    } else {
+      e.preventDefault();
+
+      console.log(e.preventDefault());
+    }
   };
 
   render() {
